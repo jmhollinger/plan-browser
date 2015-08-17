@@ -7,6 +7,8 @@ var planning = angular.module('planning', [ 'ngRoute', 'plControllers', 'smart-t
 /* Controllers Module */
 var plControllers = angular.module('plControllers', []);
 
+/* Services Module */
+var plServices = angular.module('plServices', []);
 
 /*--------------Routing--------------*/
 
@@ -37,19 +39,21 @@ planning.config(['$routeProvider',
 /*--------------Controllers--------------*/
 
 /* Applications */
-plControllers.controller('ApplicationsCtrl', ['$scope',
-  function ($scope) {
+plControllers.controller('ApplicationsCtrl', ['$scope', 'CKANquery',
+  function ($scope, CKANquery) {
+  $scope.test = CKANquery.getdata("CE","terms","Date","DESC",25)
   var table = Tabletop.init( { 
                        key: 'https://docs.google.com/spreadsheets/d/1tqMBzBJNfEJNulf4A0_WqJmZbmynqGAnDA_9FQT8IJ8/pubhtml',
                        callback: function(data, tabletop) {
                         $scope.rowCollection = data;
                         $scope.displayedCollection = [].concat($scope.rowCollection);
-                        $scope.itemsByPage=10;
+                        $scope.itemsByPage=25;
                         $scope.$apply()},
                        simpleSheet: true,
                        parseNumbers: true,
                        wanted: ["Plans"]
                    })
+
    }]);
 
 /* Applications Detail */
@@ -86,3 +90,14 @@ planning.filter('titlecase', function () {
     return words.join(' ');
   }
 });
+
+/*--------------Services--------------*/
+
+planning.factory('CKANquery', function() {
+  return { 
+        getdata: function(dataset, terms, orderby, dir, offset) {
+        var dataurl = 'base/' + dataset + terms + orderby + dir + offset
+        return dataurl
+        }
+ }
+ });
