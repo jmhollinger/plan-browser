@@ -2,13 +2,11 @@
 
 
 /* Main StatusLex App Module */
-var planning = angular.module('planning', [ 'ngRoute', 'plControllers', 'plServices', 'smart-table']);
+var planning = angular.module('planning', [ 'ngRoute', 'plControllers', 'smart-table']);
 
 /* Controllers Module */
 var plControllers = angular.module('plControllers', []);
 
-/* Services Module */
-var plServices = angular.module('plServices', []);
 
 /*--------------Routing--------------*/
 
