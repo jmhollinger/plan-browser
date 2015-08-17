@@ -1,0 +1,22 @@
+html, body {
+height: 100%;
+font-family: Raleway; Helvetica, san-serif;
+}
+
+h1, h2{
+font-weight: bold;
+}
+
+.btn-wide{
+	width:100%;
+}
+
+.st-sort-ascent:before{
+    font-family: FontAwesome;
+    content: '\f160\00a0';
+}
+
+.st-sort-descent:before{
+    font-family: FontAwesome;
+    content: '\f161\00a0';
+}

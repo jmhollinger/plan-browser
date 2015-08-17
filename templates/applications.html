@@ -1,0 +1,41 @@
+<h1>Division of Planning</h1>
+
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="#applications">Applications</a></li>
+    <li role="presentation"><a href="#about">About</a></li>
+</ul>
+
+<h3>Applications</h3>
+
+<table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped hidden-xs">
+       <thead>
+           <tr>
+              <th colspan="6"><input st-search placeholder="Search" class="input-md form-control" type="search"></th>
+           </tr>
+           <tr>
+             <th st-sort="DateOpened" class="sortable">Date Filed</th>
+             <th st-sort="getters.Address" class="sortable">Type</th>
+             <th st-sort="CaseType" class="sortable">Plan No</th>
+             <th st-sort="Status" class="sortable">Plan Name</th>
+             <th st-sort="StatusDate" class="sortable">Address</th>
+             <th st-sort="StatusDate" class="sortable">Council District</th>
+           </tr>
+       </thead>
+       <tbody>
+       <tr ng-repeat="x in displayedCollection">
+           <td><a ng-href="#applications/{{x.PlanID}}">{{x.ApplicationDate | date:'shortDate'}}</a></td>
+           <td><a ng-href="#applications/{{x.PlanID}}">{{x.ApplicationType | titlecase}}</a></td>
+           <td><a ng-href="#applications/{{x.PlanID}}">{{x.ApplicationNo}}</a></td>
+           <td><a ng-href="#applications/{{x.PlanID}}">{{x.PlanName | titlecase}}</a></td>
+           <td><a ng-href="#applications/{{x.PlanID}}">{{x.PlanAddress | titlecase}}</a></td>
+           <td><a ng-href="#applications/{{x.PlanID}}">{{x.CouncilDistrict}}</a></td>
+       </tr>
+       </tbody>
+       <tfoot>
+        <tr>
+        <td colspan="5" class="text-center">
+          <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+        </td>
+      </tr>
+    </tfoot>
+</table>
