@@ -20,3 +20,7 @@ font-weight: bold;
     font-family: FontAwesome;
     content: '\f161\00a0';
 }
+
+.record {
+	margin-bottom: 3px;
+}

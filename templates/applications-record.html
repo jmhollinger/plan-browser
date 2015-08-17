@@ -14,14 +14,14 @@
 <div class="row">
   
     <div class="col-sm-4">	
-			<p>Application No: {{x.ApplicationNo}}</p>
-			<p>Address: {{x.PlanAddress | titlecase}}</p>
-			<p>Council District: {{x.CouncilDistrict}}</p>
-			<p>Representative: {{x.Representative | titlecase}}</p>
-			<p>Date Applied: {{x.ApplicationDate | date:'shortDate'}}</p>
-			<p>Status: {{x.Status}} - {{x.StatusDate | date:'shortDate'}}</p>
-			<p>Meeting Date: {{x.MeetingBody }} - {{x.NextMeetingDate | date:'shortDate'}}</p>
-		    <p><a class="btn btn-success btn-wide" ng href="{{x.Link}}"><strong>View the Application/Plan</strong></a></p>
+			<p class="record"><strong>Application No: </strong>{{x.ApplicationNo}}</p>
+			<p class="record"><strong>Address: </strong>{{x.PlanAddress | titlecase}}</p>
+			<p class="record"><strong>Council District: </strong>{{x.CouncilDistrict}}</p>
+			<p class="record"><strong>Representative: </strong>{{x.Representative | titlecase}}</p>
+			<p class="record"><strong>Date Applied: </strong>{{x.ApplicationDate | date:'shortDate'}}</p>
+			<p class="record"><strong>Status: </strong>{{x.Status}} (Updated on {{x.StatusDate | date:'shortDate'}})</p>
+			<p><strong>Meeting Date: </strong>{{x.NextMeetingDate | date:'shortDate'}} ({{x.MeetingBody }})</p>
+		    <a class="btn btn-success btn-wide" ng href="{{x.Link}}"><strong>View the Application/Plan</strong></a>
 	</div>
 
 	<div class="col-sm-8">
